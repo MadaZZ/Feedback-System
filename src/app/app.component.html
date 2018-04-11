@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<div>
 <mat-sidenav-container>
     
     <mat-sidenav #sideNav role="navigation">
@@ -7,9 +7,11 @@
     
     <mat-sidenav-content>
         Header
+        <button mat-button (click)="sideNav.toggle()">click</button>
         <span>
             <router-outlet></router-outlet>
         </span>
     </mat-sidenav-content>
 
 </mat-sidenav-container>
+</div>
