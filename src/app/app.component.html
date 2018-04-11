@@ -1,12 +1,11 @@
-<div>
 <mat-sidenav-container>
     
     <mat-sidenav #sideNav role="navigation">
-        sideNav!!!!!
+        <app-sidenav (listclose)="sideNav.close()"></app-sidenav>
     </mat-sidenav>
     
     <mat-sidenav-content>
-        Header
+        <app-header (sideNavTog)="sideNav.toggle()"></app-header>
         <button mat-button (click)="sideNav.toggle()">click</button>
         <span>
             <router-outlet></router-outlet>
@@ -14,4 +13,3 @@
     </mat-sidenav-content>
 
 </mat-sidenav-container>
-</div>
