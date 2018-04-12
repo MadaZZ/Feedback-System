@@ -1,18 +1,16 @@
 <mat-list>
 
-  <a mat-list-item routerLink="/login">
+  <a mat-list-item routerLink="/login" (click)="listClose()" >
       <mat-icon>input</mat-icon>
       <span class="nav-cap">Login</span>
   </a>
-  <a mat-list-item routerLink="/feedback">
+  <a mat-list-item routerLink="/feedback" (click)="listClose()">
       <mat-icon>feedback</mat-icon>
       <span class="nav-cap">Feedback</span>
   </a>
-  <mat-list-item>
-      <button mat-icon-button>
-          <mat-icon>eject</mat-icon>
-          <span class="nav-cap">Logout</span>
-      </button>
-  </mat-list-item>
+  <a mat-list-item (click)="listClose()" (click)="listClose()">
+    <mat-icon>eject</mat-icon>
+    <span class="nav-cap">Logout</span>
+</a>
 
 </mat-list> 
