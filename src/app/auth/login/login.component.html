@@ -1,11 +1,20 @@
 <section class="login">
   <form fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #loginForm='ngForm' (ngSubmit)="submit(loginForm)" >
     
-
     <mat-form-field>
-      <input matInput placeholder="Input">
+      <input matInput
+       type="email" 
+       placeholder="Your ID Please!" 
+       ngModel 
+       name="email" 
+       email
+       required
+       #mail="ngModel"
+       >
+      <mat-error *ngIf="mail.hasError('required')">Email must not be empty</mat-error>
+      <mat-error *ngIf="!mail.hasError('required')">Enter valid Email</mat-error>
     </mat-form-field>
-
+ 
 
   </form>
 </section>
