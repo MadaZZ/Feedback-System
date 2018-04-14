@@ -29,10 +29,10 @@
     </mat-form-field>
     
     <mat-form-field>
-    <mat-select required>
-      <mat-option value="option">Student</mat-option>
-      <mat-option value="option">Teacher</mat-option>
-      <mat-option value="option">Admin</mat-option>
+    <mat-select name="user" ngModel #user="ngModel" required>
+      <mat-option value="Student">Student</mat-option>
+      <mat-option value="Teacher">Teacher</mat-option>
+      <mat-option value="Admin">Admin</mat-option>
     </mat-select>
     <mat-placeholder><mat-icon>accessibility</mat-icon> <b> Select Role </b> </mat-placeholder>
     </mat-form-field>
