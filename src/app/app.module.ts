@@ -14,6 +14,7 @@ import { MaterialModule } from './material/material.module';
 import { StudentFeedComponent } from './feedback/student-feed/student-feed.component';
 import { TeacherFeedComponent } from './feedback/teacher-feed/teacher-feed.component';
 import { AdminFeedComponent } from './feedback/admin-feed/admin-feed.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AdminFeedComponent } from './feedback/admin-feed/admin-feed.component';
     FeedbackComponent,
     StudentFeedComponent,
     TeacherFeedComponent,
-    AdminFeedComponent
+    AdminFeedComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
