@@ -11,6 +11,9 @@ import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MaterialModule } from './material/material.module';
+import { StudentFeedComponent } from './feedback/student-feed/student-feed.component';
+import { TeacherFeedComponent } from './feedback/teacher-feed/teacher-feed.component';
+import { AdminFeedComponent } from './feedback/admin-feed/admin-feed.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { MaterialModule } from './material/material.module';
     LoginComponent,
     HeaderComponent,
     SidenavComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    StudentFeedComponent,
+    TeacherFeedComponent,
+    AdminFeedComponent
   ],
   imports: [
     BrowserModule,
