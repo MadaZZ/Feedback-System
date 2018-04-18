@@ -1,7 +1,7 @@
 <mat-tab-group>
   
   <mat-tab class="studenttab" label="Add Student">
-    <form class="addstudentform" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" #studentForm='ngForm' (ngSubmit)="submit(studentsForm)" >
+    <form class="addstudentform" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" #studentForm='ngForm' (ngSubmit)="submit(studentForm)" >
       <mat-form-field>
         <input matInput
          placeholder="Name"
@@ -28,7 +28,7 @@
           placeholder="Password"
           type="text"
           required
-          name="password"
+          name="pass"
           ngModel
           #pass="ngModel">
       </mat-form-field>
