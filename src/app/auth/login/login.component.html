@@ -3,15 +3,14 @@
     
     <mat-form-field>
       <input matInput
-       type="email" 
+       type="text" 
        ngModel 
-       name="email" 
-       email
+       name="id" 
        required
-       #mail="ngModel" >
+       #id="ngModel" >
        <mat-placeholder> <mat-icon>perm_identity</mat-icon>  <b>Your ID</b>  </mat-placeholder>
-      <mat-error *ngIf="mail.hasError('required')">Email must not be empty</mat-error>
-      <mat-error *ngIf="!mail.hasError('required')">Enter valid Email</mat-error>
+      <mat-error *ngIf="id.hasError('required')">ID must not be empty</mat-error>
+      <mat-error *ngIf="!id.hasError('required')">Enter valid ID</mat-error>
     </mat-form-field>
 
     <mat-form-field>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable()
 export class AdminService {
 
@@ -8,9 +9,12 @@ export class AdminService {
   id = 'AD123';
   password = 'password';
 
-  check(id: any, password: any)
+  check(id: any, pass: any)
   {
-    if(id == this.id && password == this.password)
+
+    console.log(id);
+    console.log(pass);
+    if(id == this.id && pass == this.password)
     {
       return true;
     }

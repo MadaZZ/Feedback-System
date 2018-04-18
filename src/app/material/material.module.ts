@@ -10,7 +10,8 @@ import {
   MatListModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTabsModule
 } from '@angular/material';
 
 @NgModule({
@@ -25,8 +26,8 @@ import {
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
-    
+    MatSelectModule,
+    MatTabsModule
   ],
   exports: [
     MatSidenavModule,
@@ -38,7 +39,8 @@ import {
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule
   ],
   declarations: []
 })

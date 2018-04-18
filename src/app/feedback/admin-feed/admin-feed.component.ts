@@ -11,5 +11,8 @@ export class AdminFeedComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  submit(data: any)
+  {
+    console.log(data.value.name+' '+data.value.id+' '+data.value.pass);
+  }
 }

@@ -20,14 +20,15 @@ export class LoginComponent implements OnInit {
   }
 
   submit(form: NgForm){
-    const id = form.value.email;
-    const password = form.value.password;
-    const user = form.value.user;
+    var id = form.value.id;
+    var password = form.value.password;
+    var user = form.value.user;
     // //console.log(form.value.email);
     // console.log(form.value.password);
     // console.log(form.value.user);
     if(user == 'Admin')
     {
+     
       if(this.adser.check(id,password))
       {
         this.router.navigate(['/admin']);
@@ -35,9 +36,10 @@ export class LoginComponent implements OnInit {
       else
       {
         alert("Enter valid email and password");
-        //this.router.navigate(['/login']);
       }
+    
     }
+  
   }
 
 }
