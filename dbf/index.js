@@ -3,13 +3,15 @@ var express = require('express');
 //Set up express app
 const app = express();
 
+const bodyParser = require('body-parser');
+
 //Connect to mongodb
 mongoose.connect('mongodb://localhost/feed');
 mongoose.Promise = global.Promise;
 
 var routes = require('./app');
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 //Listning to app
 app.use('/api',routes);
