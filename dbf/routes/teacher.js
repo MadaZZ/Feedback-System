@@ -1,4 +1,5 @@
-var router = express.Router();
+const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const TeacherSchema = new Schema({
@@ -30,6 +31,11 @@ const TeacherSchema = new Schema({
     {
         type: String,
         required:[true,'Class field is required']
+    },
+    
+    rating: 
+    {
+        type: Number
     }
 });
 

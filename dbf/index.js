@@ -1,25 +1,24 @@
-var express = require('express');
+const express = require('express');
+const routes = require('./app')
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 //Set up express app
-const app = express();
+const app=express();
 
-const bodyParser = require('body-parser');
-
-//Connect to mongodb
-mongoose.connect('mongodb://localhost/feed');
+// //Connect to mongodb
+mongoose.connect('mongodb://localhost/feedback'); 
 mongoose.Promise = global.Promise;
 
-var routes = require('./app');
 
 app.use(bodyParser.json());
-
 //Listning to app
-app.use('/api',routes);
+app.use('/api',require('./app'));
 
 //Error handling
 app.use(function(err,req,res,next){
   res.status(442).send({error: err.message});
 });
-app.listen(process.env.port || 4000,function(){
+app.listen(process.env.port || 3000,function(){
   console.log("Listning to requests");
 });
