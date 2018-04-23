@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   
   constructor( 
     private adser: AdminService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -23,9 +25,13 @@ export class LoginComponent implements OnInit {
     var id = form.value.id;
     var password = form.value.password;
     var user = form.value.user;
-    // //console.log(form.value.email);
-    // console.log(form.value.password);
-    // console.log(form.value.user);
+
+    let data =
+    {
+      "id" : id,
+      "password" : password
+    } ;
+
     if(user == 'Admin')
     {
      
@@ -38,6 +44,38 @@ export class LoginComponent implements OnInit {
         alert("Enter valid email and password");
       }
     
+    }
+
+    else if(user == 'Teacher')
+    {
+      this.http.post('http://localhost:3000/api/student', data, { observe: 'response' })
+      .subscribe(response => {
+        let status = response.status;
+        console.log(response);
+        if(response.body != null)
+         this.router.navigate(['/student'], { fragment: 'top' });
+        else 
+        alert("Enter valid id and password");
+      }, error => {
+        console.log("Error is there " + error);
+        alert(`Error is there ${error.error.message}`);
+      });
+    }
+
+    else
+    {
+      this.http.post('http://localhost:3000/api/student', data, { observe: 'response' })
+      .subscribe(response => {
+        let status = response.status;
+        console.log(response);
+        if(response.body != null)
+         this.router.navigate(['/student'], { fragment: 'top' });
+        else 
+        alert("Enter valid id and password");
+      }, error => {
+        console.log("Error is there " + error);
+        alert(`Error is there ${error.error.message}`);
+      });
     }
   
   }

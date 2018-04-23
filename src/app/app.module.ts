@@ -17,6 +17,9 @@ import { TeacherFeedComponent } from './feedback/teacher-feed/teacher-feed.compo
 import { AdminFeedComponent } from './feedback/admin-feed/admin-feed.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
+//Required Modules
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [ AdminService ],
   bootstrap: [ AppComponent ]
