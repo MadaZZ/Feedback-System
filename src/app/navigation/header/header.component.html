@@ -10,9 +10,9 @@
   
   <div class="links" fxFlex fxLayoutAlign="end" fxHide.xs>
       <a routerLink="/login" *ngIf="!user" >Login</a>
-      <a routerLink="/student" *ngIf="user" >Feed</a>
-      <a routerLink="/teacher" *ngIf="user">Feed</a>
-      <a routerLink="/admin" *ngIf="user" >Feed</a>
+      <a routerLink="/student" *ngIf="user" >SFeed</a>
+      <a routerLink="/teacher" *ngIf="user">TFeed</a>
+      <a routerLink="/admin" *ngIf="user" >AFeed</a>
       <a class="logout" (click)="onLogout()" *ngIf="user">Logout</a>
   </div>
 

@@ -1,3 +1,19 @@
-<p>
-  student-feed works!
-</p>
+<div><section fxLayoutAlign="center center" fxLayout="column"><h2>Review your Faculty</h2> A Chance to review and rate your faculty fairly and anonymously</section></div>
+<div class="teacherList" fxLayoutAlign="center center">
+  <mat-accordion fxFlex fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="5px">
+    
+    <!-- Teachers to be displayed using ngFor directive -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Subject
+        </mat-panel-title>
+        <mat-panel-description>
+          TeacherName
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button mat-button routerLink="/questions">Review</button>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

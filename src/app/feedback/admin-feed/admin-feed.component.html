@@ -1,38 +1,55 @@
 <mat-tab-group>
-  
+
   <mat-tab class="studenttab" label="Add Student">
-    <form class="addstudentform" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" #studentForm='ngForm' (ngSubmit)="submit(studentForm)" >
-      <mat-form-field>
-        <input matInput
-         placeholder="Name"
-         type="text"
-         required
-         name="name"
-         ngModel
-         #name="ngModel">
-      </mat-form-field>
-      
-      <mat-form-field hintLabel="Max 10 characters">
-          <input matInput
-          placeholder="ID"
-          required
-          name="id"
-          ngModel
-          maxlength="10"
-          #id="ngModel">
+    
+      <form class="addstudentform" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" #studentForm='ngForm'
+        (ngSubmit)="submit(studentForm)">
+        <mat-form-field>
+          <input matInput placeholder="Name" type="text" required name="name" ngModel #name="ngModel">
+        </mat-form-field>
+
+        <mat-form-field hintLabel="Max 10 characters">
+          <input matInput placeholder="ID" required name="id" ngModel maxlength="10" #id="ngModel">
           <mat-hint align="end">{{id.value?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Password" type="text" required name="pass" ngModel #pass="ngModel">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Select">
+            <mat-option value="uca1">UCA1</mat-option>
+            <mat-option value="uca2">UCA2</mat-option>
+            <mat-option value="uca3">UCA3</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" [disabled]="studentForm.invalid">ADD</button>
+      </form>
+    
+
+  </mat-tab>
+
+
+
+
+  <mat-tab class="teachertab" label="Add Faculty">
+
+    <form class="addteacherform" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px" #teacherForm='ngForm'>
+      <mat-form-field>
+        <input matInput placeholder="Name" type="text" required name="name" ngModel #name="ngModel">
+      </mat-form-field>
+
+      <mat-form-field hintLabel="Max 10 characters">
+        <input matInput placeholder="ID" required name="id" ngModel maxlength="10" #id="ngModel">
+        <mat-hint align="end">{{id.value?.length || 0}}/10</mat-hint>
       </mat-form-field>
 
       <mat-form-field>
-          <input matInput
-          placeholder="Password"
-          type="text"
-          required
-          name="pass"
-          ngModel
-          #pass="ngModel">
+        <input matInput placeholder="Password" type="text" required name="password" ngModel #pass="ngModel">
       </mat-form-field>
-      
+
       <mat-form-field>
         <mat-select placeholder="Select">
           <mat-option value="uca1">UCA1</mat-option>
@@ -41,67 +58,17 @@
         </mat-select>
       </mat-form-field>
 
-      <button mat-raised-button color="accent">ADD</button>
-  </form>
-
-  </mat-tab>
-  
-  
-  
-  
-<mat-tab class="teachertab" label="Add Faculty">
-
-<form class="addteacherform" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
-    <mat-form-field>
-      <input matInput
-       placeholder="Name"
-       type="text"
-       required
-       name="name"
-       ngModel
-       #name="ngModel">
-    </mat-form-field>
-    
-    <mat-form-field hintLabel="Max 10 characters">
-        <input matInput
-        placeholder="ID"
-        required
-        name="id"
-        ngModel
-        maxlength="10"
-        #id="ngModel">
-        <mat-hint align="end">{{id.value?.length || 0}}/10</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput
-        placeholder="Password"
-        type="text"
-        required
-        name="password"
-        ngModel
-        #pass="ngModel">
-    </mat-form-field>
-    
-    <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="uca1">UCA1</mat-option>
-        <mat-option value="uca2">UCA2</mat-option>
-        <mat-option value="uca3">UCA3</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
+      <mat-form-field>
         <mat-select placeholder="Select">
           <mat-option value="toc">TOC</mat-option>
           <mat-option value="dbms">DBMS</mat-option>
           <mat-option value="csa">CSA</mat-option>
           <mat-option value="data structures">Data Structures</mat-option>
         </mat-select>
-    </mat-form-field>
+      </mat-form-field>
 
-    <button mat-raised-button color="accent">ADD</button>
-  </form>
-</mat-tab>
+      <button mat-raised-button color="accent" [disabled]="teacherForm.invalid" >ADD</button>
+    </form>
+  </mat-tab>
 
 </mat-tab-group>
