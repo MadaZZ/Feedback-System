@@ -19,7 +19,8 @@ import {
   MatStepperModule,
   MatSnackBarModule,
   MatExpansionModule,
-  MatRadioModule
+  MatRadioModule,
+  MatDividerModule
 } from '@angular/material';
 
 @NgModule({
@@ -43,7 +44,8 @@ import {
     MatStepperModule,
     MatSnackBarModule,
     MatExpansionModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDividerModule
     ],
   exports: [
     MatSidenavModule,
@@ -64,7 +66,8 @@ import {
     MatStepperModule,
     MatSnackBarModule,
     MatExpansionModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDividerModule
   ],
   declarations: []
 })
