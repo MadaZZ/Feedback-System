@@ -19,6 +19,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 //Required Modules
 import { HttpClientModule } from '@angular/common/http';
+import { QuestionsComponent } from './feedback/student-feed/questions/questions.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     StudentFeedComponent,
     TeacherFeedComponent,
     AdminFeedComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
