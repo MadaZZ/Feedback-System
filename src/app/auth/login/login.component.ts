@@ -11,8 +11,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   hide = true;
-  
-  constructor( 
+
+  constructor(
     private auser: AuthService,
     private router: Router,
     private http: HttpClient
@@ -21,51 +21,20 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit(form: NgForm){
+  submit(form: NgForm) {
     var id = form.value.id;
     var password = form.value.password;
     var user = form.value.user;
 
-    if(user == 'Admin')
-    {
-     
-      if(this.auser.check(id,password))
-      {
+    if (user == 'Admin') {
+
+      if (this.auser.checkAdmin(id, password)) {
         this.router.navigate(['/admin']);
       }
-      else
-      {
-        alert("Enter valid email and password");
-      }
-    
-    }
-
-    else if(user == 'Teacher')
-    {
-
-      if(this.auser.check(id,password))
-      {
-        this.router.navigate(['/Teacher']);
-      }
-      else
-      {
-        alert("Enter valid email and password");
-      }
-
-    }
-
-    else
-    {
-      if(this.auser.check(id,password))
-      {
-        this.router.navigate(['/student']);
-      }
-      else
-      {
+      else {
         alert("Enter valid email and password");
       }
     }
-  
   }
 
 }
