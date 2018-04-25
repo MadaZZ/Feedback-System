@@ -57,11 +57,11 @@ router.get('/faculty', function (req, res) {
 });
 
 
-router.get('/searchfaculty', function (req, res) {
-  let class = req.class;
-  teacher.find({class}).then(function (data) {
-    res.send(JSON.stringify(data));
-  });
-});
+// router.get('/searchfaculty', function (req, res) {
+//   let class = req.class;
+//   teacher.find({class}).then(function (data) {
+//     res.send(JSON.stringify(data));
+//   });
+// });
 
 module.exports = router;
