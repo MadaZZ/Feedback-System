@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';/
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
+import { UIService } from './shared/ui.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -43,7 +44,7 @@ import { QuestionsComponent } from './feedback/student-feed/questions/questions.
     FormsModule,
     HttpClientModule
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, UIService ],
   bootstrap: [ AppComponent ]
 })
 
