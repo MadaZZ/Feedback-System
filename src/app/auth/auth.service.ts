@@ -4,23 +4,27 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor() { }
-  admin = 
+  admin =
   {
     id: 'AD123',
     password: 'password'
   }
-
-  checkAdmin(id: any, pass: any)
-  {
-    if(id == this.admin.id && pass == this.admin.password)
-    {
+  private class;
+  public checkAdmin(id: any, pass: any) {
+    if (id == this.admin.id && pass == this.admin.password) {
       return true;
     }
-    else
-    {
-      return false;  
+    else {
+      return false;
     }
-    
+
   }
 
+  public setClass(Class: any) {
+    this.class = Class;
+  }
+
+  public getClass() {
+    return this.class;
+  }
 }
