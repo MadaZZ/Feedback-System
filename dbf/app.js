@@ -5,8 +5,6 @@ var teacher = require('./routes/teacher');
 var student = require('./routes/student');
 
 router.post('/student',function(req,res,next){
-  // res.set({'Content-type':'application/json',
-  // 'Access-Control-Allow-Origin':'http://localhost:4200'});
     let id = req.body.id;
     let password = req.body.password; 
     console.log(req.body);
@@ -22,37 +20,6 @@ student.create(req.body).then(function(studentdata){
   console.log(studentdata);
   res.send(studentdata); 
 }).catch(next);    
-});
-
-router.post('/addfaculty',function(req,res,next){ 
-  console.log(req.body);
-teacher.create(req.body).then(function(studentdata){
-  console.log(studentdata);
-  res.send(studentdata); 
-}).catch(next);    
-});
-
- router.post('/faculty',function(req,res,next){
-    let ids = req.body.id;
-    let passwords = req.body.password; 
-    console.log(req.body);
-  teacher.findOne({'id':ids,'password':passwords}).then(function(studentdata){
-    console.log(studentdata);
-    res.send(studentdata);  
-  }).catch(next);    
- });
-
-router.get('/student',function(req,res){
-   student .find({}).then(function(data){
-    console.log(data);
-    res.send(JSON.stringify(data));
-  });
-});
-
-router.get('/faculty',function(req,res){
-  teacher .find({}).then(function(data){
-    res.send(JSON.stringify(data));
-  });
 });
 
 module.exports = router;
