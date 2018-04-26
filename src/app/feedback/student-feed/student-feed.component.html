@@ -3,15 +3,16 @@
   <mat-accordion fxFlex fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="5px">
     
     <!-- Teachers to be displayed using ngFor directive -->
-    <mat-expansion-panel>
+    <mat-expansion-panel *ngFor="let teacher of teachers" >
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Subject
+          {{teacher.subject}}
         </mat-panel-title>
-        <mat-panel-description>
-          TeacherName
-        </mat-panel-description>
+        <!-- <mat-panel-description>
+          
+        </mat-panel-description> -->
       </mat-expansion-panel-header>
+      {{teacher.name}}
       <button mat-button routerLink="/questions">Review</button>
     </mat-expansion-panel>
 

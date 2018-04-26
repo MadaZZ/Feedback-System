@@ -11,6 +11,7 @@ import { UIService } from '../../shared/ui.service';
 export class StudentFeedComponent implements OnInit {
 
   private class;
+  private teachers: any;
   
   constructor( 
     private http: HttpClient,
@@ -20,9 +21,10 @@ export class StudentFeedComponent implements OnInit {
 
   ngOnInit() {
     this.class = this.authser.getClass();
-    this.http.get('http://localhost:3000/api/student'+'?class='+this.class)
+    this.http.get('http://localhost:3000/api/searchfaculty/?'+'class='+this.class)
     .subscribe(response => {
       console.log(response);
+      this.teachers = response;
     }, error => {
       this.uiser.showSnackbar(error.message, 'ok',5000);
     });
