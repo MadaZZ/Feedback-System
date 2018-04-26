@@ -13,7 +13,7 @@
         </mat-panel-description> -->
       </mat-expansion-panel-header>
       {{teacher.name}}
-      <button mat-button routerLink="/questions">Review</button>
+      <button mat-button (click)="startReview(teacher.name)">Review</button>
     </mat-expansion-panel>
 
   </mat-accordion>

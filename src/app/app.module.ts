@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';//Imported to use animations
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
 import { UIService } from './shared/ui.service';
 
@@ -42,10 +42,11 @@ import { QuestionsComponent } from './feedback/student-feed/questions/questions.
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [ AuthService, UIService ],
-  bootstrap: [ AppComponent ]
+  providers: [AuthService, UIService],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }

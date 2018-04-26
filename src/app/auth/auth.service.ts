@@ -10,6 +10,7 @@ export class AuthService {
     password: 'password'
   }
   private class;
+  private teacher;
   public checkAdmin(id: any, pass: any) {
     if (id == this.admin.id && pass == this.admin.password) {
       return true;
@@ -26,5 +27,15 @@ export class AuthService {
 
   public getClass() {
     return this.class;
+  }
+
+  public setTeacher(name)
+  {
+    this.teacher = name;
+  }
+
+  public getTeacher()
+  {
+    return this.teacher;
   }
 }
