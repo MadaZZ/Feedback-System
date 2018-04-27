@@ -3,39 +3,58 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TeacherSchema = new Schema({
-    name: 
+    name:
     {
         type: String,
-        required:[true,'Name field is required']
+        required: [true, 'Name field is required']
     },
-    
-    id: 
+
+    id:
     {
         type: Number,
-        required:[true,'ID field is required']
-    },
-    
-    password: 
-    {
-        type:String,
-        required:[true,'Name field is required']
+        required: [true, 'ID field is required']
     },
 
-    subject: 
+    password:
     {
         type: String,
-        required:[true,'Subject field is required']
+        required: [true, 'Name field is required']
     },
 
-    class: 
+    subject:
     {
         type: String,
-        required:[true,'Class field is required']
+        required: [true, 'Subject field is required']
     },
-    
-    rating: 
+
+    class:
     {
-        type: Number
+        type: String,
+        required: [true, 'Class field is required']
+    },
+
+    rating:
+    {
+        oneStar: {
+            type: String
+        },
+        twoStar: {
+            type: String
+        },
+        threeStar: {
+            type: String
+        },
+        fourStar: {
+            type: String
+        },
+        fiveStar: {
+            type: String
+        }
+    },
+
+    reviews:
+    {
+        type: String
     }
 });
 
