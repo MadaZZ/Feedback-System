@@ -36,19 +36,19 @@ const TeacherSchema = new Schema({
     rating:
     {
         oneStar: {
-            type: String
+            type: Number
         },
         twoStar: {
-            type: String
+            type: Number
         },
         threeStar: {
-            type: String
+            type: Number
         },
         fourStar: {
-            type: String
+            type: Number
         },
         fiveStar: {
-            type: String
+            type: Number
         }
     },
 
