@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../auth/auth.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { UIService } from '../../../shared/ui.service';
 
 @Component({
   selector: 'app-questions',
@@ -10,6 +12,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class QuestionsComponent implements OnInit {
   public teacherName;
   isLinear = true;
+  public review ="Hello there";
+  public ratting: any;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -27,7 +31,8 @@ export class QuestionsComponent implements OnInit {
   four = 0;
   five = 0;
 
-  constructor(private autser: AuthService, private formBuilder: FormBuilder) { }
+  constructor(private autser: AuthService, private formBuilder: FormBuilder,
+  private http:HttpClient,private uiser: UIService) { }
 
   ngOnInit() {
     this.teacherName = this.autser.getTeacher();
@@ -62,6 +67,21 @@ export class QuestionsComponent implements OnInit {
     this.tenthFormGroup = this.formBuilder.group({
       tenthCtrl: ['', Validators.required]
     });
+
+    this.http.get('http://localhost:3000/api/getRatting/?name='+this.teacherName)
+    .subscribe(response => {
+      console.log(response,this.teacherName);
+      this.ratting = response;
+
+      this.one = this.ratting[0].rating.oneStar;
+      this.two = this.ratting[0].rating.twoStar;
+      this.three = this.ratting[0].rating.threeStar;
+      this.four = this.ratting[0].rating.fourStar;
+      this.five = this.ratting[0].rating.fiveStar;
+      this.review = this.ratting[0].reviews;
+    }, error => {
+      this.uiser.showSnackbar(error.message, 'ok', 5000);
+    });
   }
   public submit()
   {    
@@ -93,7 +113,28 @@ export class QuestionsComponent implements OnInit {
       }
     }
 
-    console.log(this.points+ "one= " +this.one+ " two= "+this.two+" three= "+this.three+" four= "+this.four+" five= "+this.five)
+    console.log(this.ratting);
+    console.log("response "+this.ratting[0].rating.oneStar);
+    let data = {'rating' : {
+      'oneStar' : this.one,
+      'twoStar' : this.two,
+      'threeStar' : this.three,
+      'fourStar' : this.four,
+      'fiveStar' : this.five
+    },
+    'name' : this.teacherName,
+    'review' : this.review
+  }
+    this.http.post('http://localhost:3000/api/update',data, { observe: 'response' })
+    .subscribe(response => {
+      let status = response.status;
+      console.log(response);
+    }, error => {
+      //console.log("Error is there " + error);
+      //alert(`Error is there ${error.error.message}`);
+      this.uiser.showSnackbar(error.message, 'ok',5000);
+    });
+//console.log(this.points+ "one= " +this.one+ " two= "+this.two+" three= "+this.three+" four= "+this.four+" five= "+this.five)
 
   }
 }
