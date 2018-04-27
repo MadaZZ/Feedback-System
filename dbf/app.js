@@ -57,10 +57,31 @@ router.get('/faculty', function (req, res) {
 });
 
 router.get('/searchfaculty', function (req, res) {
-  let Class=req.Class; 
-  teacher.find({Class}).then(function (data) {
+  let Class=req.query.Class; 
+  teacher.find({Class}).then(function (data) { 
     res.send(JSON.stringify(data));
   });
 });
+
+router.get('/getRatting', function (req, res) {
+  let name = req.query.name;
+  console.log(name);
+  teacher.find({'name':name}).then(function (data) {
+    console.log(data);
+    res.send(JSON.stringify(data));
+  });
+});
+
+router.post('/update', function (req, res, next) {
+  
+  console.log(req.body);
+  let name = req.body.name;
+
+    teacher.update({'name' : name}, {$set: {'rating': req.body.rating}}).then(function (studentdata) {
+      console.log(studentdata);
+      res.send(studentdata);
+    }).catch(next);
+  });
+  
 
 module.exports = router;
