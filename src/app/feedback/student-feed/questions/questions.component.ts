@@ -125,8 +125,8 @@ export class QuestionsComponent implements OnInit {
     'name' : this.teacherName,
     'review' : this.review
   }
-    this.http.post('http://localhost:3000/api/update',data, { observe: 'response' })
-    .subscribe(response => {
+  this.http.post('http://localhost:3000/api/update',data, { observe: 'response' })
+  .subscribe(response => {
       let status = response.status;
       console.log(response);
     }, error => {
@@ -134,7 +134,8 @@ export class QuestionsComponent implements OnInit {
       //alert(`Error is there ${error.error.message}`);
       this.uiser.showSnackbar(error.message, 'ok',5000);
     });
-//console.log(this.points+ "one= " +this.one+ " two= "+this.two+" three= "+this.three+" four= "+this.four+" five= "+this.five)
+    
+    //console.log(this.points+ "one= " +this.one+ " two= "+this.two+" three= "+this.three+" four= "+this.four+" five= "+this.five)
 
   }
 }
