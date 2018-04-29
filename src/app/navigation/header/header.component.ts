@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() sideNavTog = new EventEmitter<void>();
-  constructor() { }
-  user = true;
+  
+  private user: String = null;
+  private userSubs: Subscription;
+
+  constructor( private authser: AuthService ) { }
 
   ngOnInit() {
+    this.userSubs = this.authser.authChange.subscribe( user => {
+      this.user = user
+    });
   }
 
   toggleOnCLick(){
