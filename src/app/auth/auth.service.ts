@@ -5,16 +5,19 @@ import { Subject } from 'rxjs';
 export class AuthService {
   authChange = new Subject<String>();//Sends data onChange
 
-  constructor() { }
-  admin =
+  private admin =
   {
     id: 'AD123',
     password: 'password'
   }
+
   private class;
   private teacher;
   private name;
   public adminLogin = false;
+  
+  constructor() { }
+
   public checkAdmin(id: any, pass: any) {
     if (id == this.admin.id && pass == this.admin.password) {
       this.authChange.next("Admin");
@@ -52,6 +55,7 @@ export class AuthService {
   public getName() {
     return this.name;
   }
+
   public logout(a) {
     this.authChange.next('login');
   }
