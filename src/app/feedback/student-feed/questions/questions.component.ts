@@ -12,7 +12,7 @@ import { UIService } from '../../../shared/ui.service';
 export class QuestionsComponent implements OnInit {
   public teacherName;
   isLinear = true;
-  public review ="Hello there";
+  public review;
   public ratting: any;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -24,6 +24,7 @@ export class QuestionsComponent implements OnInit {
   eighthFormGroup: FormGroup;
   ninthFormGroup: FormGroup;
   tenthFormGroup: FormGroup;
+  eleventhFormGroup: FormGroup;
   points = "";
   one = 0;
   two = 0;
@@ -32,7 +33,7 @@ export class QuestionsComponent implements OnInit {
   five = 0;
 
   constructor(private autser: AuthService, private formBuilder: FormBuilder,
-  private http:HttpClient,private uiser: UIService) { }
+    private http: HttpClient, private uiser: UIService) { }
 
   ngOnInit() {
     this.teacherName = this.autser.getTeacher();
@@ -67,75 +68,65 @@ export class QuestionsComponent implements OnInit {
     this.tenthFormGroup = this.formBuilder.group({
       tenthCtrl: ['', Validators.required]
     });
-
-    this.http.get('http://localhost:3000/api/getRatting/?name='+this.teacherName)
-    .subscribe(response => {
-      console.log(response,this.teacherName);
-      this.ratting = response;
-
-      this.one = this.ratting[0].rating.oneStar;
-      this.two = this.ratting[0].rating.twoStar;
-      this.three = this.ratting[0].rating.threeStar;
-      this.four = this.ratting[0].rating.fourStar;
-      this.five = this.ratting[0].rating.fiveStar;
-      this.review = this.ratting[0].reviews;
-    }, error => {
-      this.uiser.showSnackbar(error.message, 'ok', 5000);
+    this.eleventhFormGroup = this.formBuilder.group({
+      eleventhCtrl: ['', Validators.required]
     });
+
+    this.http.get('http://localhost:3000/api/getRatting/?name=' + this.teacherName)
+      .subscribe(response => {
+        console.log(response, this.teacherName);
+        this.ratting = response;
+
+        this.one = this.ratting[0].rating.oneStar;
+        this.two = this.ratting[0].rating.twoStar;
+        this.three = this.ratting[0].rating.threeStar;
+        this.four = this.ratting[0].rating.fourStar;
+        this.five = this.ratting[0].rating.fiveStar;
+        this.review = this.ratting[0].reviews;
+      }, error => {
+        this.uiser.showSnackbar(error.message, 'ok', 5000);
+      });
   }
-  public submit()
-  {    
-    this.points = this.firstFormGroup.value.firstCtrl+this.secondFormGroup.value.secondCtrl+
-    this.thirdFormGroup.value.thirdCtrl+this.fourthFormGroup.value.fourthCtrl+this.fifthFormGroup.value.fifthCtrl+
-    this.sixthFormGroup.value.sixthCtrl+this.seventhFormGroup.value.seventhCtrl+this.eighthFormGroup.value.eighthCtrl+
-    this.ninthFormGroup.value.ninthCtrl+this.tenthFormGroup.value.tenthCtrl;
-    for(let i = 0; i < this.points.length; i++)
-    {
-      if(this.points[i] == '1')
-      {
+  public submit() {
+    this.points = this.firstFormGroup.value.firstCtrl + this.secondFormGroup.value.secondCtrl +
+      this.thirdFormGroup.value.thirdCtrl + this.fourthFormGroup.value.fourthCtrl + this.fifthFormGroup.value.fifthCtrl +
+      this.sixthFormGroup.value.sixthCtrl + this.seventhFormGroup.value.seventhCtrl + this.eighthFormGroup.value.eighthCtrl +
+      this.ninthFormGroup.value.ninthCtrl + this.tenthFormGroup.value.tenthCtrl;
+    for (let i = 0; i < this.points.length; i++) {
+      if (this.points[i] == '1') {
         this.one++;
       }
-      else if(this.points[i] == '2')
-      {
+      else if (this.points[i] == '2') {
         this.two++;
       }
-      else if(this.points[i] == '3')
-      {
+      else if (this.points[i] == '3') {
         this.three++;
       }
-      else if(this.points[i] == '4')
-      {
+      else if (this.points[i] == '4') {
         this.four++;
       }
-      else if(this.points[i] == '5')
-      {
+      else if (this.points[i] == '5') {
         this.five++;
       }
     }
+    this.review += this.eleventhFormGroup.value.eleventhCtrl + "$";
 
-    console.log(this.ratting);
-    console.log("response "+this.ratting[0].rating.oneStar);
-    let data = {'rating' : {
-      'oneStar' : this.one,
-      'twoStar' : this.two,
-      'threeStar' : this.three,
-      'fourStar' : this.four,
-      'fiveStar' : this.five
-    },
-    'name' : this.teacherName,
-    'review' : this.review
-  }
-  this.http.post('http://localhost:3000/api/update',data, { observe: 'response' })
-  .subscribe(response => {
-      let status = response.status;
-      console.log(response);
-    }, error => {
-      //console.log("Error is there " + error);
-      //alert(`Error is there ${error.error.message}`);
-      this.uiser.showSnackbar(error.message, 'ok',5000);
-    });
-    
-    //console.log(this.points+ "one= " +this.one+ " two= "+this.two+" three= "+this.three+" four= "+this.four+" five= "+this.five)
+    let data = {
+      'rating': {
+        'oneStar': this.one,
+        'twoStar': this.two,
+        'threeStar': this.three,
+        'fourStar': this.four,
+        'fiveStar': this.five
+      },
+      'name': this.teacherName,
+      'review': this.review
+    }
+    this.http.post('http://localhost:3000/api/update', data, { observe: 'response' })
+      .subscribe(response => {
+      }, error => {
 
+        this.uiser.showSnackbar(error.message, 'ok', 5000);
+      });
   }
 }
