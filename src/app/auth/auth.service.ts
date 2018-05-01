@@ -15,7 +15,7 @@ export class AuthService {
   private teacher;
   private name;
   public adminLogin = false;
-  
+
   constructor() { }
 
   public checkAdmin(id: any, pass: any) {
