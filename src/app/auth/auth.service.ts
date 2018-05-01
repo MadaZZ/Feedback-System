@@ -3,7 +3,6 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-
   authChange = new Subject<String>();//Sends data onChange
 
   constructor() { }
@@ -14,20 +13,22 @@ export class AuthService {
   }
   private class;
   private teacher;
-  
+  private name;
+  public adminLogin = false;
   public checkAdmin(id: any, pass: any) {
     if (id == this.admin.id && pass == this.admin.password) {
       this.authChange.next("Admin");
-      return true;
+      this.adminLogin = true;
+      return this.adminLogin;
     }
     else {
-      return false;
+      return this.adminLogin;
     }
+
   }
 
- 
-
   public setClass(Class: any) {
+    this.authChange.next("Student");
     this.class = Class;
   }
 
@@ -35,13 +36,23 @@ export class AuthService {
     return this.class;
   }
 
-  public setTeacher(name)
-  {
+  public setTeacher(name) {
     this.teacher = name;
   }
 
-  public getTeacher()
-  {
+  public getTeacher() {
     return this.teacher;
+  }
+
+  public setName(n) {
+    this.authChange.next("Teacher");
+    this.name = n;
+  }
+
+  public getName() {
+    return this.name;
+  }
+  public logout(a) {
+    this.authChange.next('login');
   }
 }
