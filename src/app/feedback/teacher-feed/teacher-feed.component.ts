@@ -42,7 +42,6 @@ export class TeacherFeedComponent implements OnInit {
       }, error => {
         this.uiser.showSnackbar(error.message, 'ok', 5000);
       });
-
   }
-
-
+  
+}
