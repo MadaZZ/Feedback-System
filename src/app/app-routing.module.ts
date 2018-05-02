@@ -11,14 +11,14 @@ import { QuestionsComponent } from './feedback/student-feed/questions/questions.
 import { AdminGuard } from './authguards/admin.guard';
 import { StudentGuard } from './authguards/student.guard';
 import { TeacherGuard } from './authguards/teacher.guard';
-
+import { QuestionsGuard } from './authguards/questions.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminFeedComponent, canActivate: [AdminGuard] },
-  { path: 'teacher', component: TeacherFeedComponent },
-  { path: 'student', component: StudentFeedComponent },
-  { path: 'questions', component: QuestionsComponent },
+  { path: 'teacher', component: TeacherFeedComponent, canActivate: [TeacherGuard] },
+  { path: 'student', component: StudentFeedComponent, canActivate: [StudentGuard] },
+  { path: 'questions', component: QuestionsComponent, canActivate: [QuestionsGuard] },
   { path: 'home', component: WelcomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
@@ -34,7 +34,8 @@ const routes: Routes = [
   providers: [
     AdminGuard,
     StudentGuard,
-    TeacherGuard
+    TeacherGuard,
+    QuestionsGuard
   ]
 })
 export class AppRoutingModule { }
