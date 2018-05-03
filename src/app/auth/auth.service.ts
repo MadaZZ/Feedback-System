@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class AuthService {
+  
   authChange = new Subject<String>();//Sends data onChange
 
   private admin =
@@ -15,6 +16,8 @@ export class AuthService {
   private teacher;
   private name;
   public adminLogin = false;
+  public studentLogin = false;
+  private teacherLogin = false;
 
   constructor() { }
 
@@ -27,7 +30,6 @@ export class AuthService {
     else {
       return this.adminLogin;
     }
-
   }
 
   public setClass(Class: any) {
@@ -59,4 +61,17 @@ export class AuthService {
   public logout(a) {
     this.authChange.next('login');
   }
+
+  adming(){
+    return this.adminLogin;
+  }
+
+  studentg(){
+    return this.studentLogin;
+  }
+
+  teacherg(){
+    return this.teacherLogin;
+  }
+
 }
