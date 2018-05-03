@@ -15,8 +15,8 @@ export class AuthService {
   private class;
   private teacher;
   private name;
-  public adminLogin = false;
-  public studentLogin = false;
+  private adminLogin = false;
+  private studentLogin = false;
   private teacherLogin = false;
 
   constructor() { }

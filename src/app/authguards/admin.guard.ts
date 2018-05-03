@@ -6,14 +6,14 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
-  constructor(private authser: AuthService, private router: Router) { }
+    constructor(private authser: AuthService, private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if ( /*Some condition to activate router */ this.authser.adming() == true) {
-        return true;
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        if ( /*Some condition to activate router */ this.authser.adming() == true) {
+            return true;
+        }
+        else {
+            this.router.navigate(['/login']);
+        }
     }
-    else {
-        this.router.navigate(['/login']);
-    }
-}
 }
