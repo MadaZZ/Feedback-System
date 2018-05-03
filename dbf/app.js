@@ -5,8 +5,6 @@ var teacher = require('./routes/teacher');
 var student = require('./routes/student');
 
 router.post('/student', function (req, res, next) {
-  // res.set({'Content-type':'application/json',
-  // 'Access-Control-Allow-Origin':'http://localhost:4200'});
   let id = req.body.id;
   let password = req.body.password;
   console.log(req.body);
