@@ -9,16 +9,13 @@ export class LoginGuard implements CanActivate {
   constructor(private authser: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.authser.studentg() || this.authser.teacherg() || this.authser.adming()) {
-      return false;
-    }
-    else if (this.authser.studentg()) {
+    if (this.authser.studentg() == true) {
       this.router.navigate(['/student']);
     }
-    else if (this.authser.teacherg()) {
+    else if (this.authser.teacherg() == true) {
       this.router.navigate(['/teacher']);
     }
-    else if (this.authser.adming()) {
+    else if (this.authser.adming() == true) {
       this.router.navigate(['/admin']);
     }
     else{
