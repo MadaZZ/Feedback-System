@@ -9,7 +9,7 @@ export class AdminGuard implements CanActivate {
     constructor(private authser: AuthService, private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if ( /*Some condition to activate router */ this.authser.adming() == true) {
+        if (this.authser.adming() == true) {
             return true;
         }
         else {
