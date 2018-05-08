@@ -44,41 +44,10 @@ export class LoginComponent implements OnInit {
       
     }
     else if (user == 'Student') {
-      console.log(data);
-      this.http.post('http://localhost:3000/api/student', data, { observe: 'response' })
-        .subscribe(response => {
-          if (response.body == null) {
-            this.uiser.showSnackbar('Enter valid credentials', 'ok', 4000);
-          }
-          else {
-            this.class = response.body;
-            let d = this.class.class;
-            console.log(d);
-            this.auser.setClass(d);
-            this.router.navigate(['/student']);
-          }
-          //console.log(response);
-        }, error => {
-          this.uiser.showSnackbar(error.message, 'ok', 5000);
-        });
+      this.auser.chechStudent(data);
     }
     else if (user == 'Teacher') {
-      this.http.post('http://localhost:3000/api/faculty', data, { observe: 'response' })
-        .subscribe(response => {
-          if (response == null) {
-            this.uiser.showSnackbar('Enter valid credentials', 'ok', 4000);
-          }
-          else {
-            console.log(response);
-            this.name = response.body;
-            let d = this.name.name;
-            console.log(d);
-            this.auser.setName(d);
-            this.router.navigate(['/teacher']);
-          }
-        }, error => {
-          this.uiser.showSnackbar(error.message, 'ok', 5000);
-        });
+      this.auser.checkTeacher(data);
     }
   }
 
