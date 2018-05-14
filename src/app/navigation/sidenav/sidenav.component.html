@@ -16,7 +16,7 @@
         <mat-icon>feedback</mat-icon>
         <span class="nav-cap">AFeed</span>
     </a>
-    <a mat-list-item (click)="listClose()" (click)="listClose()" *ngIf="user == 'Admin'||user == 'Teacher'||user == 'Student'">
+    <a mat-list-item (click)="onLogout()" *ngIf="user == 'Admin'||user == 'Teacher'||user == 'Student'">
         <mat-icon>eject</mat-icon>
         <span class="nav-cap">Logout</span>
     </a>

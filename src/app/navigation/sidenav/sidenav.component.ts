@@ -23,5 +23,9 @@ export class SidenavComponent implements OnInit {
   listClose() {
     this.listclose.emit();
   }
+  
+  onLogout(){
+    this.authser.logout();
+  }
 
 }
