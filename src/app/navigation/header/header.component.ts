@@ -24,4 +24,9 @@ export class HeaderComponent implements OnInit {
   toggleOnCLick(){
     this.sideNavTog.emit();
   }
+  
+  onLogout(){
+    this.authser.logout();
+  }
+
 }

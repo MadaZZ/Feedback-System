@@ -96,8 +96,15 @@ export class AuthService {
     return this.name;
   }
 
-  public logout(a) {
-    this.authChange.next('login');
+  public logout() {
+    this.router.navigate(['/login']);
+    this.authChange.next('');
+    this.class = null;
+    this.teacher = null;
+    this.name = null;
+    this.adminLogin = false;
+    this.studentLogin = false;
+    this.teacherLogin = false;
   }
 
   adming(){
