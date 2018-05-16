@@ -26,6 +26,8 @@ import { QuestionsComponent } from './feedback/student-feed/questions/questions.
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+//For Google map
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,9 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDmfGOfXs9ciWfN3Xnd53iJwd7OvCuIBn0'
+    }),
     environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : []
   ],
   providers: [AuthService, UIService],

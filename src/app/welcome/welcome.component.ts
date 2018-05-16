@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+  lat: number = 30.517609;
+  lng: number = 76.659570;
+
   constructor() { }
 
   ngOnInit() {
