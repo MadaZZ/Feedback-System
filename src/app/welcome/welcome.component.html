@@ -34,9 +34,28 @@
     </section>
 </div>
 
-<mat-card>
-    <
-    <agm-map [latitude]="lat" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
+<mat-card fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-title> HOW TO REACH US!! </mat-card-title>
+    <mat-card fxLayout="row" fxFlex class="infoCont">
+        <mat-card class="info" fxLayout="column" fxLayoutGap="30px">
+
+            <mat-card>
+                hello
+            </mat-card>
+            <mat-card>
+                hello
+            </mat-card>
+            <mat-card>
+                hello
+            </mat-card>
+
+        </mat-card>
+
+        <mat-card class="map">
+            <agm-map [latitude]="lat" [longitude]="lng">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+        </mat-card>
+    </mat-card>
+
 </mat-card>

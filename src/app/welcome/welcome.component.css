@@ -9,3 +9,13 @@ section{
 agm-map {
     height: 300px;
   }
+
+.map{
+    width: 50%;
+}
+.info{
+    width: 50%;  
+}
+.infoCont{
+    width: 100%;
+}
