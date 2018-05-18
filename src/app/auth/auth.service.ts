@@ -53,7 +53,7 @@ export class AuthService {
       }
       //console.log(response);
     }, error => {
-      this.uiser.showSnackbar(error.message, 'ok', 5000);
+      this.uiser.showSnackbar('Enter valid credentials', 'ok', 4000);
     });
   }
 
@@ -75,7 +75,7 @@ export class AuthService {
         this.router.navigate(['/teacher']);
       }
     }, error => {
-      this.uiser.showSnackbar(error.message, 'ok', 5000);
+      this.uiser.showSnackbar('Enter valid credentials', 'ok', 4000);
     });
   }
 
