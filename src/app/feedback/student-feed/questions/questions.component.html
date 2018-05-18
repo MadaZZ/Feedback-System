@@ -280,9 +280,11 @@
   <mat-step [stepControl]="eleventhFormGroup">
     <form [formGroup]="eleventhFormGroup">
       <ng-template matStepLabel>Feedback For Teacher</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Enter Feedback" formControlName="eleventhCtrl" required>
+      
+      <mat-form-field class="textbox">
+        <textarea matInput placeholder="Enter Feedback" formControlName="eleventhCtrl" required></textarea>
       </mat-form-field>
+
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
