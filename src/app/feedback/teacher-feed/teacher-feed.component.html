@@ -1,24 +1,53 @@
-<div fxLayoutAlign="center">
-  <h2>Your Ratings</h2>
+<div fxLayoutAlign="center center" fxLayout="column">
+  <h1>{{name}}</h1>
+  <br>
+  <h2>Ratings</h2>
 </div>
+
 <mat-card fxLayoutAlign="center" fxLayout="column">
   <mat-card fxLayoutAlign="center">
+
     <div fxLayout="row" fxLayoutAlign="center" class="cont">
-      <mat-card class="rat">Progress Spinner</mat-card>
-      <mat-card class="rat"> Rating % </mat-card>
+
+      <mat-card class="rat" fxLayoutAlign="center center">
+        <mat-progress-spinner mode="determinate" value='{{percentage}}'> </mat-progress-spinner>
+      </mat-card>
+
+      <mat-card class="rat" fxLayoutAlign="center center">
+        <h1>{{percentage}} % </h1>
+      </mat-card>
+
+    </div>
+
+  </mat-card>
+
+  <mat-card class="bars">
+    <div>
+      <mat-card>
+          <mat-icon>sentiment_very_satisfied</mat-icon><mat-progress-bar mode="determinate" value='{{fiveStartRating}}'></mat-progress-bar>
+      </mat-card>
+      <mat-card>
+          <mat-icon>sentiment_satisfied</mat-icon><mat-progress-bar mode="determinate" value='{{fourStarRating}}'></mat-progress-bar>
+      </mat-card>
+      <mat-card>
+          <mat-icon>sentiment_neutral</mat-icon><mat-progress-bar mode="determinate" value='{{threeStarRating}}'></mat-progress-bar>
+      </mat-card>
+      <mat-card>
+          <mat-icon>sentiment_dissatisfied</mat-icon><mat-progress-bar mode="determinate" value='{{twoStarRating}}'></mat-progress-bar>
+      </mat-card>
+      <mat-card>
+          <mat-icon>sentiment_very_dissatisfied</mat-icon><mat-progress-bar mode="determinate" value='{{oneStarRating}}'></mat-progress-bar>
+      </mat-card>
     </div>
   </mat-card>
-  <mat-card>Attribute Ratings</mat-card>
+
 </mat-card>
 <br>
 
 <div fxLayoutAlign="center">
   <h2>Reviews</h2>
 </div>
-<mat-list>
-  <mat-list-item>Review 1</mat-list-item>
+<mat-list *ngFor="let data of reviewForTeacher">
+  <mat-list-item>{{data}}</mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item>Review 2</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>Review 3</mat-list-item>
 </mat-list>
