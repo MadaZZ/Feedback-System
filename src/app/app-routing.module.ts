@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminFeedComponent, canActivate: [AdminGuard] },
   { path: 'teacher', component: TeacherFeedComponent, canActivate: [TeacherGuard] },
   { path: 'student', component: StudentFeedComponent, canActivate: [StudentGuard] },
-  { path: 'questions', component: QuestionsComponent },
+  { path: 'questions', component: QuestionsComponent, canActivate: [StudentGuard] },
   { path: 'home', component: WelcomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

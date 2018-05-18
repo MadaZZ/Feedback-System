@@ -86,13 +86,13 @@ export class AdminFeedComponent implements OnInit {
 
   public facultyData(facultyData) {
     let record = {
-      id: facultyData.value.id,
-      name: facultyData.value.username,
-      password: facultyData.value.password, 
-      subject: facultyData.value.subject,
-      class: facultyData.value.class
-
-    }
+      id : facultyData.value.id,
+      name : facultyData.value.username,
+      password : facultyData.value.password, 
+      subject : facultyData.value.subject,
+      class : facultyData.value.class,
+      reviews : '$'
+        }
     console.log(record);
     this.http.post('http://localhost:3000/api/addfaculty', record, { observe: 'response' })
       .subscribe(response => {
