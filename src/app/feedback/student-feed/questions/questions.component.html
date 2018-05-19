@@ -1,6 +1,6 @@
 <h2>{{teacherName}}</h2>
 <mat-vertical-stepper linear='true' #stepper="matVerticalStepper">
-  <mat-step label="Question1" [stepControl]="firstFormGroup">
+  <mat-step label="How well did you undertood the project?" [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="firstCtrl">
@@ -27,7 +27,7 @@
     </form>
   </mat-step>
 
-  <mat-step label="Question2" [stepControl]="secondFormGroup">
+  <mat-step label="What do you think was the level of knowledge of the subject to the professor?" [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="secondCtrl">
@@ -55,7 +55,7 @@
     </form>
   </mat-step>
 
-  <mat-step label="Question3" [stepControl]="thirdFormGroup">
+  <mat-step label="What was the level of difficulty of the subject?" [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="thirdCtrl">
@@ -83,7 +83,7 @@
     </form>
   </mat-step>
 
-  <mat-step label="Question4" [stepControl]="fourthFormGroup">
+  <mat-step label="Was the professor accessible outside the class?" [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="fourthCtrl">
@@ -111,7 +111,7 @@
     </form>
   </mat-step>
 
-  <mat-step label="Question5" [stepControl]="fifthFormGroup">
+  <mat-step label="Would you recommend the professor to your juniors?" [stepControl]="fifthFormGroup">
     <form [formGroup]="fifthFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="fifthCtrl">
@@ -138,7 +138,7 @@
       </mat-card>
     </form>
   </mat-step>
-  <mat-step label="Question6" [stepControl]="sixthFormGroup">
+  <mat-step label="Was the professor interactive in class?" [stepControl]="sixthFormGroup">
     <form [formGroup]="sixthFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="sixthCtrl">
@@ -166,7 +166,7 @@
     </form>
   </mat-step>
 
-  <mat-step label="Question7" [stepControl]="seventhFormGroup">
+  <mat-step label="Is the professor a tough grader?" [stepControl]="seventhFormGroup">
     <form [formGroup]="seventhFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="seventhCtrl">
@@ -194,7 +194,7 @@
     </form>
   </mat-step>
 
-  <mat-step label="Question8" [stepControl]="eighthFormGroup">
+  <mat-step label="Did the professor recommended you to use textbook?" [stepControl]="eighthFormGroup">
     <form [formGroup]="eighthFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="eighthCtrl">
@@ -221,7 +221,7 @@
       </mat-card>
     </form>
   </mat-step>
-  <mat-step label="Question9" [stepControl]="ninthFormGroup">
+  <mat-step label="Was the professor entertaining enough to keep the lecture lit?" [stepControl]="ninthFormGroup">
     <form [formGroup]="ninthFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="ninthCtrl">
@@ -249,7 +249,7 @@
     </form>
   </mat-step>
 
-  <mat-step label="Question10" [stepControl]="tenthFormGroup">
+  <mat-step label="Did the proffesor used projector to make you understand the topic better?" [stepControl]="tenthFormGroup">
     <form [formGroup]="tenthFormGroup" fxFlex>
       <mat-card>
         <mat-radio-group fxLayoutGap="20px" formControlName="tenthCtrl">
